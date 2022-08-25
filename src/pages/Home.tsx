@@ -10,12 +10,12 @@ export function Home() {
 
   function handleAddTask(newTaskTitle: string) {
 
-    const taskExists = tasks.find((task) => task.title === newTaskTitle)
+    // const taskExists = tasks.find((task) => task.title === newTaskTitle)
     
-    if(taskExists){
-      Alert.alert('Task já cadastrada','Você não pode cadastrar uma task com o mesmo nome')
-      return
-    }
+    // if(taskExists){
+    //   Alert.alert('Task já cadastrada','Você não pode cadastrar uma task com o mesmo nome')
+    //   return
+    // }
 
     const newTask = {
       id: Number(new Date().getTime()),
@@ -55,17 +55,19 @@ export function Home() {
   }
   
   function handleRemoveTask(id: number) {
-    Alert.alert(
-      'Remover item',
-      'Tem certeza que você deseja remover esse item?',
-      [
-        {text: 'Não', onPress: () => { return }, style: 'cancel'},
-        {text: 'Sim', onPress: () => {
-          const tasksFind = tasks.filter(task => task.id !== id)
-          setTasks(tasksFind)
-        }, style: 'destructive'},
-      ]
-    )
+    const tasksFind = tasks.filter(task => task.id !== id)
+    setTasks(tasksFind)
+    // Alert.alert(
+    //   'Remover item',
+    //   'Tem certeza que você deseja remover esse item?',
+    //   [
+    //     {text: 'Não', onPress: () => { return }, style: 'cancel'},
+    //     {text: 'Sim', onPress: () => {
+    //       const tasksFind = tasks.filter(task => task.id !== id)
+    //       setTasks(tasksFind)
+    //     }, style: 'destructive'},
+    //   ]
+    // )
   }
 
   return (
