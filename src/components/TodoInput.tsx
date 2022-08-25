@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 interface TodoInputProps {
@@ -21,7 +21,7 @@ export function TodoInput({ addTask }: TodoInputProps) {
         placeholderTextColor="#B2B2B2"
         returnKeyType="send"
         selectionColor="#666666"
-        onChangeText={(text) => setTask(text)}
+        onChangeText={setTask}
       />
       <TouchableOpacity
         testID="add-new-task-button"
